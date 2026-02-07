@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Poppins", system-ui, sans-serif;
+  background: radial-gradient(circle at top, #ffd6e8, #ffc2d1, #ff8fab);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Glassmorphic card */
+.card {
+  width: 92%;
+  max-width: 380px;
+  padding: 36px 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.2);
+  text-align: center;
+  animation: cardIn 1s ease;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: scale(0.9) translateY(30px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Title */
+.title {
+  color: #c9184a;
+  margin-bottom: 10px;
+}
+
+#name {
+  display: inline-block;
+  font-size: 34px;
+  font-weight: 900;
+  background: linear-gradient(90deg, #ff4d6d, #b5179e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 6px 20px rgba(181,23,158,0.35);
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+/* Glowing rose */
+.rose-glow {
+  font-size: 64px;
+  margin: 12px 0;
+  animation: glowPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes glowPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 8px #ff4d6d); }
+  50% { transform: scale(1.15); filter: drop-shadow(0 0 18px #ff4d6d); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 8px #ff4d6d); }
+}
+
+.question {
+  font-size: 18px;
+  font-weight: 600;
+  color: #6a040f;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 16px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff4d6d, #ff758f);
+  color: white;
+  box-shadow: 0 14px 30px rgba(255,77,109,0.45);
+}
+
+#yesBtn:hover {
+  transform: scale(1.08);
+}
+
+#noBtn {
+  background: #f1f3f5;
+  color: #333;
+}
+
+/* Response */
+#response {
+  margin-top: 18px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #c9184a;
+}
+
+/* Secret message */
+.secret {
+  display: none;
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  animation: reveal 0.9s ease;
+  color: #6a040f;
+  font-size: 15px;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Floating hearts */
+.particles span {
+  position: absolute;
+  font-size: 18px;
+  animation: float linear infinite;
+  opacity: 0.75;
+}
+
+@keyframes float {
+  from { transform: translateY(110vh) scale(0.8); }
+  to { transform: translateY(-10vh) scale(1.2); }
+}
+/* existing styles remain SAME */
+
+/* 🌸 PHOTO */
+.photo-wrapper {
+  width: 160px;
+  height: 160px;
+  margin: 18px auto;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(135deg, #ff4d6d, #b5179e);
+  animation: floatPhoto 4s ease-in-out infinite;
+  box-shadow: 0 20px 40px rgba(181,23,158,0.35);
+}
+
+.photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+
+  /* 🔥 move photo inside frame */
+  transform: translateX(6px);
+}
+
+/* floating animation */
+@keyframes floatPhoto {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+/* Mobile polish */
+@media (max-width: 480px) {
+  .photo-wrapper {
+    width: 140px;
+    height: 140px;
+  }
+}
